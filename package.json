@@ -1,0 +1,39 @@
+{
+  "name": "next-i18n-loader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/postor/next-i18n-loader.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/postor/next-i18n-loader/issues"
+  },
+  "homepage": "https://github.com/postor/next-i18n-loader#readme",
+  "devDependencies": {
+    "axios": "^0.21.0",
+    "express": "^4.17.1",
+    "next": "^10.0.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "acorn": "^8.0.4",
+    "acorn-bigint": "^1.0.0",
+    "acorn-jsx": "^5.3.1",
+    "acorn-jsx-walk": "^2.0.0",
+    "acorn-walk": "^8.0.0",
+    "interpolate": "^0.1.0",
+    "loader-utils": "^2.0.0"
+  }
+}
