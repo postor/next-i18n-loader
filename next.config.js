@@ -7,19 +7,22 @@ module.exports = (phase, { defaultConfig }) => {
       locales: ['en', 'zh'],
       defaultLocale: 'en'
     },
-    webpack: (config, options) => {
-      config.module.rules.unshift({
+    webpack: (config) => {
+      config.module.rules.push({
         test: /\.js/,
         use: {
           loader: join(__dirname, 'lib', 'loader.js'),
           options: {
-            translateModule: join(__dirname, 'utils', 'translate.js'),
-            componentsRegex: /\/components\//,
-            commonjs: false
+            includes: [
+              'pages',
+              'components'
+            ]
           }
         },
+        exclude: /node_modules|_app\.js/
       })
 
+      // console.log(config.module.rules)
       return config
     }
   }

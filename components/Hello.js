@@ -1,14 +1,10 @@
 // @next-i18n-loader component
 
-// import { useTranslation } from 'react-i18next'
+import useTranslation from "../lib"
+
 const Hello = () => {
-  try {
-    // let x = useTranslation()
-  } catch (e) {
-    console.log({error:e})
-  }
-  // return (<div>{t('Hello')}</div>)
-  return null
+  let { t } = useTranslation()
+  return (<div>{t('Hello {{name}}', { name: 'Josh' })} from component Hello</div>)
 }
 
 export default Hello
