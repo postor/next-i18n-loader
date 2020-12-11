@@ -1,7 +1,8 @@
 import App from 'next/app'
 import SelectLanguage from "../components/SelectLanguage"
+import getTranslationData from '../get-translation'
 import { I18nProvider } from "../lib"
-import getTranslationData from '../utils/get-translation-data'
+
 
 function MyApp({ Component, pageProps, translationData }) {
   return (<I18nProvider translationData={translationData}>

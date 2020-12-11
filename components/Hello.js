@@ -1,5 +1,3 @@
-// @next-i18n-loader component
-
 import useTranslation from "../lib"
 
 const Hello = () => {
