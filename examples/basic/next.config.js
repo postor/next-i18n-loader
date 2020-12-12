@@ -14,8 +14,10 @@ module.exports = (phase, { defaultConfig }) => {
             includes: [
               'pages',
               'components'
-            ]
-          }
+            ],
+            ecmaVersion: 2020
+          },
+          
         },
         exclude: /node_modules|_app\.js/
       })
