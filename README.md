@@ -5,6 +5,7 @@
 ## 特性 | features
 
 - （针对i18next）无需提前指定 namespace，自动按需加载翻译 | no need to specify namespace, get translations in need
+- next v10
 
 ## 示例 | example
 
