@@ -23,7 +23,7 @@ npm run dev
 
 ```
 npm init -y
-npm i next react react-dom
+npm i next react react-dom next-i18n-loader axios -S
 ```
 
 
@@ -63,7 +63,7 @@ module.exports = (phase, { defaultConfig }) => {
 定义 `_app.js` | define `_app.js`
 
 ```
-// pages/_next.js
+// pages/_app.js
 import App from 'next/app'
 import SelectLanguage from "../components/SelectLanguage"
 import getTranslationData from '../get-translation'
@@ -93,7 +93,9 @@ export default MyApp
 定义获取翻译方法 | define how to get translations
 
 ```
-const axios = require('axios')
+// get-translation.js
+
+import axios from 'axios'
 const instance = axios.create()
 
 async function translate(text, to, from) {
@@ -112,12 +114,13 @@ async function getTranslationData(keys = [], to, from) {
   return rtn
 }
 
-exports['default'] = getTranslationData
+export default getTranslationData
 ```
 
 然后开发组件 | then code components
 
 ```
+// components/Hello.js
 import useTranslation from "next-i18n-loader/lib"
 
 const Hello = () => {
@@ -131,6 +134,7 @@ export default Hello
 和页面即可 | and pages
 
 ```
+// pages/index.js
 import Hello from '../components/Hello'
 import useTranslation from 'next-i18n-loader/lib'
 
@@ -146,4 +150,24 @@ Index.getInitialProps = async (ctx) => {
   return { a: 1 }
 }
 export default Index
+```
+
+切换语言 | change language
+
+```
+// components/SelectLanguage.js 
+import { useRouter } from 'next/router'
+
+const SelectLanguage = () => {
+  let { locale, locales, pathname, asPath, push } = useRouter()
+  return (<select
+    value={locale}
+    onChange={e => push(pathname, asPath, { locale: e.target.value })}>
+    {locales.map(x => (<option
+      key={x}
+      value={x}>{x}</option>))}
+  </select>)
+}
+
+export default SelectLanguage
 ```
